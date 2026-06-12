@@ -1,0 +1,7 @@
+{
+  "scripts": {
+    "dev": "node scripts/serve.js",
+    "build": "node --check src/main.js && node --check scripts/serve.js",
+    "preview": "node scripts/serve.js"
+  }
+}
