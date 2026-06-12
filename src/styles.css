@@ -6,8 +6,8 @@
   --color-panel: #14171d;
   --color-panel-soft: #1b2028;
   --color-line: rgba(247, 244, 238, 0.14);
-  --color-brand: #d7ff3f;
-  --color-brand-strong: #a6ff00;
+  --color-brand: #19db7d;
+  --color-brand-strong: #14c06c;
   --color-orange: #ff7a3d;
   --shadow-soft: 0 24px 80px rgba(0, 0, 0, 0.35);
   --container: min(1180px, calc(100vw - 40px));
@@ -28,7 +28,7 @@ html {
 body {
   margin: 0;
   background:
-    radial-gradient(circle at top left, rgba(215, 255, 63, 0.16), transparent 34rem),
+    radial-gradient(circle at top left, rgba(25, 219, 125, 0.16), transparent 34rem),
     radial-gradient(circle at 88% 4%, rgba(255, 122, 61, 0.13), transparent 28rem),
     var(--color-body);
   color: var(--color-ink);
@@ -79,19 +79,14 @@ p {
 }
 
 .brand {
-  gap: 10px;
   font-weight: 800;
+  font-size: 1.35rem;
   letter-spacing: -0.03em;
+  color: var(--color-ink);
 }
 
-.brand-mark {
-  display: grid;
-  width: 38px;
-  height: 38px;
-  place-items: center;
-  border-radius: 50%;
-  background: var(--color-brand);
-  color: #10120f;
+.brand-dot {
+  color: var(--color-brand);
 }
 
 .nav-links {
@@ -100,8 +95,32 @@ p {
   font-size: 0.92rem;
 }
 
+.nav-links a {
+  transition: color 200ms ease;
+  position: relative;
+  padding-block: 4px;
+}
+
+.nav-links a::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background: var(--color-brand);
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 250ms ease;
+}
+
 .nav-links a:hover {
   color: var(--color-ink);
+}
+
+.nav-links a:hover::after {
+  transform: scaleX(1);
+  transform-origin: left;
 }
 
 .button {
@@ -115,12 +134,14 @@ p {
   background: var(--color-brand);
   color: #11140d;
   font-weight: 800;
-  transition: transform 180ms ease, border-color 180ms ease, background 180ms ease;
+  box-shadow: 0 4px 14px rgba(25, 219, 125, 0.1);
+  transition: transform 200ms cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 200ms ease, background 200ms ease;
 }
 
 .button:hover {
-  transform: translateY(-2px);
+  transform: translateY(-3px) scale(1.02);
   background: var(--color-brand-strong);
+  box-shadow: 0 8px 25px rgba(25, 219, 125, 0.25);
 }
 
 .button--small {
@@ -225,7 +246,7 @@ main {
 .status-pill {
   padding: 8px 12px;
   border-radius: 999px;
-  background: rgba(215, 255, 63, 0.14);
+  background: rgba(25, 219, 125, 0.14);
   color: var(--color-brand);
 }
 
@@ -240,12 +261,49 @@ main {
 
 .signal-grid span {
   aspect-ratio: 1;
-  border-radius: 18px;
-  background: rgba(247, 244, 238, 0.09);
+  border-radius: 10px;
+  background: rgba(247, 244, 238, 0.03);
+  display: grid;
+  place-items: center;
+  font-family: monospace;
+  font-weight: 800;
+  font-size: 1.2rem;
+  color: rgba(25, 219, 125, 0.35);
+  transition: background 300ms ease, color 300ms ease, border-color 300ms ease;
+  user-select: none;
+  border: 1px solid rgba(255, 255, 255, 0.02);
+}
+
+@keyframes pulseCell {
+  0%, 100% {
+    opacity: 0.45;
+    transform: scale(0.96);
+    color: rgba(25, 219, 125, 0.35);
+    background: rgba(247, 244, 238, 0.03);
+    border-color: rgba(255, 255, 255, 0.02);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.03);
+    color: #11140d;
+    background: var(--color-brand);
+    border-color: var(--color-brand);
+    box-shadow: 0 0 16px rgba(25, 219, 125, 0.5);
+  }
 }
 
 .signal-grid span:nth-child(3n) {
-  background: var(--color-brand);
+  animation: pulseCell 4s infinite ease-in-out;
+}
+
+.signal-grid span:nth-child(4n) {
+  animation: pulseCell 5s infinite ease-in-out;
+  animation-delay: 1.5s;
+}
+
+.signal-grid span:nth-child(5n) {
+  animation: pulseCell 6s infinite ease-in-out;
+  animation-delay: 3s;
 }
 
 .metric-card {
@@ -258,6 +316,7 @@ main {
   border-radius: var(--radius-md);
   background: rgba(11, 13, 16, 0.74);
   backdrop-filter: blur(16px);
+  z-index: 2;
 }
 
 .metric-card strong {
@@ -279,6 +338,57 @@ main {
 .site-footer {
   width: var(--container);
   margin-inline: auto;
+}
+
+.tech-stack {
+  width: var(--container);
+  margin: 0 auto clamp(48px, 6vw, 96px);
+  text-align: center;
+}
+
+.tech-stack .eyebrow {
+  margin-bottom: 24px;
+}
+
+.tech-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+}
+
+.tech-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  background: rgba(247, 244, 238, 0.03);
+  border: 1px solid var(--color-line);
+  border-radius: 999px;
+  color: var(--color-muted);
+  font-size: 0.88rem;
+  font-weight: 500;
+  transition: border-color 200ms ease, color 200ms ease, background 200ms ease, transform 200ms ease;
+  cursor: default;
+}
+
+.tech-badge:hover {
+  border-color: var(--color-brand);
+  color: var(--color-ink);
+  background: rgba(25, 219, 125, 0.05);
+  transform: translateY(-2px);
+}
+
+.tech-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--color-brand);
+  transition: transform 200ms ease;
+}
+
+.tech-badge:hover .tech-dot {
+  transform: scale(1.3);
 }
 
 .stats-band {
@@ -342,7 +452,20 @@ main {
 }
 
 .card-grid--services {
+  grid-template-columns: repeat(4, 1fr);
   align-items: stretch;
+}
+
+@media (max-width: 1100px) {
+  .card-grid--services {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 920px) {
+  .card-grid--services {
+    grid-template-columns: 1fr;
+  }
 }
 
 .service-card,
@@ -351,11 +474,24 @@ main {
   border: 1px solid var(--color-line);
   border-radius: var(--radius-md);
   background: var(--color-panel);
+  transition: transform 200ms ease, border-color 200ms ease, box-shadow 200ms ease, background 200ms ease;
 }
 
 .service-card,
 .work-card {
   padding: clamp(22px, 3vw, 34px);
+}
+
+.service-card:hover {
+  transform: translateY(-3px);
+  border-color: var(--color-brand);
+  box-shadow: 0 12px 30px rgba(25, 219, 125, 0.05);
+}
+
+.timeline__item:hover {
+  transform: translateX(6px);
+  border-color: rgba(25, 219, 125, 0.25);
+  background: var(--color-panel-soft);
 }
 
 .service-card h3,
@@ -382,6 +518,11 @@ main {
 }
 
 .service-card li {
+  color: var(--color-muted);
+  transition: transform 200ms ease, color 200ms ease;
+}
+
+.service-card:hover li {
   color: var(--color-ink);
 }
 
@@ -389,6 +530,22 @@ main {
   content: '↳';
   margin-right: 10px;
   color: var(--color-brand);
+  display: inline-block;
+  transition: transform 200ms ease;
+}
+
+.service-card:hover li::before {
+  transform: translateX(4px);
+}
+
+.card-grid--work {
+  grid-template-columns: repeat(2, 1fr);
+}
+
+@media (max-width: 920px) {
+  .card-grid--work {
+    grid-template-columns: 1fr;
+  }
 }
 
 .work-card {
@@ -397,8 +554,17 @@ main {
   flex-direction: column;
   justify-content: space-between;
   background:
-    linear-gradient(180deg, rgba(215, 255, 63, 0.12), transparent 46%),
+    linear-gradient(180deg, rgba(25, 219, 125, 0.12), transparent 46%),
     var(--color-panel-soft);
+  transition: transform 200ms ease, border-color 200ms ease, box-shadow 200ms ease;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.work-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--color-brand);
+  box-shadow: 0 12px 30px rgba(25, 219, 125, 0.08);
 }
 
 .work-card strong {
@@ -408,6 +574,27 @@ main {
   border-radius: 999px;
   background: var(--color-brand);
   color: #10120f;
+}
+
+.work-card__bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 18px;
+}
+
+.visit-link {
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--color-brand);
+  opacity: 0.6;
+  transform: translateX(-6px);
+  transition: opacity 200ms ease, transform 200ms ease, color 200ms ease;
+}
+
+.work-card:hover .visit-link {
+  opacity: 1;
+  transform: translateX(0);
 }
 
 .timeline {
@@ -436,13 +623,14 @@ main {
   gap: 28px;
   padding: clamp(34px, 7vw, 68px);
   border-radius: var(--radius-lg);
-  background: var(--color-brand);
+  background: linear-gradient(135deg, var(--color-brand), #0bb55e);
   color: #10120f;
+  box-shadow: 0 32px 80px rgba(25, 219, 125, 0.25);
 }
 
 .contact .eyebrow,
 .contact p {
-  color: #324209;
+  color: #064e26;
 }
 
 .contact h2 {
@@ -514,4 +702,23 @@ main {
     align-items: flex-start;
     flex-direction: column;
   }
+}
+
+/* --- Custom scrollbar --- */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-body);
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(25, 219, 125, 0.2);
+  border-radius: 999px;
+  border: 3px solid var(--color-body);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(25, 219, 125, 0.4);
 }
