@@ -1,7 +1,7 @@
 {
   "scripts": {
-    "dev": "python3 -m http.server 4173",
-    "build": "node --check src/main.js",
-    "preview": "python3 -m http.server 4173"
+    "dev": "node scripts/serve.js",
+    "build": "node --check src/main.js && node --check scripts/serve.js",
+    "preview": "node scripts/serve.js"
   }
 }
