@@ -1,82 +1,82 @@
 const stats = [
-  { value: '100%', label: 'Custom Code (No Templates)' },
-  { value: '4', label: 'Live Client Sites Launched' },
-  { value: '2', label: 'Locations: Dubai & Bangkok' },
+  { value: 'Sub-1.0s', label: 'Average PageSpeed load times for systems we deploy.' },
+  { value: '100%', label: 'Hand-written custom code built to optimize conversions.' },
+  { value: 'Global Edge', label: 'High-availability cloud infrastructure & edge hosting.' },
 ];
 
 const services = [
   {
     eyebrow: '01 / Web Dev',
-    title: 'Web Development',
-    copy: 'We build custom websites that load instantly and look premium. No slow templates or page builders—just clean, modern code.',
-    features: ['Responsive layouts', 'Speed optimization', 'SEO & accessibility'],
+    title: 'Bespoke Web Engineering',
+    copy: 'Fast front-ends built with zero bloat. We write clean, semantic code that scores 100% on PageSpeed, ranks natively on search engines, and works perfectly on every device.',
+    features: ['Next-gen responsiveness', 'SEO-first structure', 'Performance tuning'],
   },
   {
     eyebrow: '02 / Design',
-    title: 'UI/UX Design',
-    copy: 'We design functional, clean interfaces. From initial wireframes to interactive layouts, we focus on usability and polished styling.',
-    features: ['Interface styling', 'User workflows', 'Figma design'],
+    title: 'Elite Interface Design',
+    copy: 'High-fidelity layouts designed to delight and convert. We map deep user journeys, build interactive wireframes, and design signature visual identities that make your product unforgettable.',
+    features: ['Interactive prototyping', 'Brand design systems', 'Figma asset delivery'],
   },
   {
     eyebrow: '03 / E-commerce',
-    title: 'E-commerce',
-    copy: 'Custom online shops built entirely from scratch. We write bespoke shopping carts, payment checkouts, and admin dashboards designed for your specific store flow.',
-    features: ['Custom shopping carts', 'Payment gateways', 'Bespoke checkout flows'],
+    title: 'Custom Commerce Engines',
+    copy: 'Bespoke checkouts and shopping carts engineered for maximum conversion rates. We integrate secure multi-currency payments and build automated back-offices tailored to your operations.',
+    features: ['Frictionless checkouts', 'Multi-currency setups', 'Inventory auto-sync'],
   },
   {
     eyebrow: '04 / Software',
-    title: 'Custom Software',
-    copy: 'Bespoke web applications built to automate your operations. We design custom internal tools, databases, and APIs.',
-    features: ['API integrations', 'Database design', 'Workflow automation'],
+    title: 'Enterprise Applications',
+    copy: 'Robust, secure, and scalable web applications designed to automate operations. We engineer secure APIs, modern dashboards, and custom databases to supercharge your team\'s workflow.',
+    features: ['Automated workflows', 'Relational DB design', 'Third-party API bridges'],
   },
 ];
 
 const work = [
   {
     name: 'May Exports Thailand',
-    category: 'B2B Trade',
-    metric: 'B2B Directory',
-    description: 'Custom product catalog and import/export database built for an agricultural export company in Bangkok.',
+    category: 'Global B2B Commerce',
+    metric: 'Catalog Database',
+    description: 'An international B2B directory and agricultural export search platform, optimizing bulk quote requests and catalog index speeds in Bangkok.',
     link: 'https://www.mayexportsthailand.com/',
   },
   {
     name: 'Romford Group',
-    category: 'Real Estate',
-    metric: 'Portfolio Site',
-    description: 'Minimalist corporate portfolio showcase showcasing property investments and luxury residential developments.',
+    category: 'Luxury Real Estate',
+    metric: 'Investor Platform',
+    description: 'A high-end, immersive digital showcase showcasing multi-million dollar luxury real estate investments and developer portfolios.',
     link: 'https://romford.netlify.app',
   },
   {
     name: 'ESF UAE',
-    category: 'Sports Distribution',
-    metric: 'Product Portal',
-    description: 'B2B equipment distribution directory and booking interface for sports facilities across the UAE.',
+    category: 'Enterprise Distribution',
+    metric: 'Booking & Catalog',
+    description: 'A high-speed product portal and complex booking system built for one of the largest sports equipment distributors in the UAE.',
     link: 'https://www.esfuae.com/',
   },
   {
     name: 'AtoZ Travel',
-    category: 'Travel & Hospitality',
-    metric: 'Booking App',
-    description: 'Interactive custom travel planner and holiday package booking tool tailored for UAE tourism.',
+    category: 'B2C Hospitality',
+    metric: 'Interactive Planner',
+    description: 'A custom, high-speed itinerary planner and holiday package booking tool tailored for premium GCC travel and tourism.',
     link: 'https://atoztravel.ae',
   },
 ];
 
 const process = [
   {
-    label: '01 / Scoping',
-    title: 'Strategy & Wireframes',
-    copy: 'We scope your project requirements, map the user journeys, and outline page structures before designing.',
+    label: '01 / Strategy',
+    title: 'Technical Architecture & Alignment',
+    copy: 'We break down your goals, wireframe the user flow, and design the software architecture before writing a single line of code.',
   },
   {
-    label: '02 / UI Design',
-    title: 'Figma Layouts',
-    copy: 'We design the complete visual interface in Figma, focusing on layout flow, clean typography, and modern aesthetics.',
+    label: '02 / Interface',
+    title: 'Interactive High-Fidelity Design',
+    copy: 'We build interactive prototypes in Figma, shaping the design system, micro-interactions, and visual layouts until it feels signature.',
   },
   {
-    label: '03 / Coding',
-    title: 'Development & Launch',
-    copy: 'We write clean HTML, CSS, and JS. We optimize page performance, test across all device sizes, and launch the live site.',
+    label: '03 / Engineering',
+    title: 'Production Engineering & Optimization',
+    copy: 'We write production-grade, highly-optimized code, rigorously test across devices and platforms, and deploy on global edge servers.',
   },
 ];
 
@@ -109,30 +109,17 @@ function header() {
 }
 
 function hero() {
-  const gridCells = Array.from({ length: 28 }, () => `<span class="binary-cell">${Math.random() > 0.5 ? '1' : '0'}</span>`).join('');
-
   return html`
     <section class="hero" id="top">
       <div class="hero__content">
-        <p class="eyebrow">Digital Studio</p>
-        <h1>We build custom websites, design interfaces, and code software.</h1>
+        <p class="eyebrow">Digital Product & Growth Studio</p>
+        <h1>We engineer high-performance web products and elite digital interfaces.</h1>
         <p class="hero__copy">
-          A design-focused engineering studio shipping fast frontends, bespoke applications, and custom e-commerce engines built from scratch.
+          Binary.Agency is a boutique design and software engineering studio. We combine world-class code with sharp UX strategy to build lightning-fast web applications, custom e-commerce engines, and high-converting marketing systems. No templates, no page builders—just pure performance.
         </p>
         <div class="hero__actions">
-          <a class="button" href="#contact">Book a discovery call</a>
+          <a class="button" href="#contact">Start a conversation</a>
           <a class="button button--ghost" href="#work">View selected work</a>
-        </div>
-      </div>
-      <div class="hero-card" aria-label="Studio Details">
-        <div class="hero-card__topline">
-          <span>Studio HQ</span>
-          <span class="status-pill">Active</span>
-        </div>
-        <div class="signal-grid" aria-hidden="true">${gridCells}</div>
-        <div class="metric-card">
-          <strong>Dubai</strong>
-          <span>& Bangkok · Operating Globally</span>
         </div>
       </div>
     </section>
@@ -173,9 +160,9 @@ function servicesSection() {
   return html`
     <section class="section" id="services">
       ${sectionHeader({
-        eyebrow: 'What we do',
-        title: 'Bespoke design and clean code.',
-        copy: 'We design and engineer custom web platforms. Every project is built from the ground up to load fast, rank well, and work perfectly on every screen size.',
+        eyebrow: 'Our Capabilities',
+        title: 'Engineered to win. Designed to convert.',
+        copy: 'We don\'t build generic websites. We engineer high-performance digital assets that capture market share, load instantly, and elevate your brand\'s presence.',
       })}
       <div class="card-grid card-grid--services">
         ${services.map((service) => html`
@@ -196,7 +183,7 @@ function servicesSection() {
 function workSection() {
   return html`
     <section class="section section--dark" id="work">
-      ${sectionHeader({ eyebrow: 'Selected Work', title: 'Projects we\'ve shipped.' })}
+      ${sectionHeader({ eyebrow: 'Case Studies', title: 'Production systems we\'ve shipped.' })}
       <div class="card-grid card-grid--work">
         ${work.map((item) => html`
           <a href="${item.link}" target="_blank" rel="noopener noreferrer" class="work-card">
@@ -219,7 +206,7 @@ function workSection() {
 function processSection() {
   return html`
     <section class="section" id="process">
-      ${sectionHeader({ eyebrow: 'How we work', title: 'From first call to deployment.' })}
+      ${sectionHeader({ eyebrow: 'Our Process', title: 'Our execution framework.' })}
       <div class="timeline">
         ${process.map((step, index) => html`
           <article class="timeline__item">
@@ -241,9 +228,9 @@ function contact() {
     <section class="contact" id="contact">
       <div>
         <p class="eyebrow">Start a Project</p>
-        <h2>Let's build something together.</h2>
+        <h2>Let's engineer your growth.</h2>
       </div>
-      <a class="button button--light" href="mailto:hello@binary.agency">hello@binary.agency</a>
+      <a class="button button--light" href="mailto:hello@binary.agency">Start a conversation</a>
     </section>
   `;
 }
@@ -275,15 +262,81 @@ function app() {
 
 document.getElementById('root').innerHTML = app();
 
-// Live binary grid cell value toggler to represent "Binary" computation
+
+
+// --- Debounce Helper ---
+function debounce(fn, delay) {
+  let timer = null;
+  return function (...args) {
+    clearTimeout(timer);
+    timer = setTimeout(() => fn.apply(this, args), delay);
+  };
+}
+
+// --- Background Binary Grid Initializer ---
+function initBackgroundGrid() {
+  const container = document.getElementById('bg-binary-grid');
+  if (!container) return;
+
+  // Each cell is 70px including gap (approx 54px cell + 16px gap)
+  const cellWidth = 70;
+  const cols = Math.ceil(window.innerWidth / cellWidth);
+  const rows = Math.ceil(window.innerHeight / cellWidth);
+
+  container.style.setProperty('--grid-cols', cols);
+  container.style.setProperty('--grid-rows', rows);
+
+  const cellCount = cols * rows;
+  const fragment = document.createDocumentFragment();
+
+  for (let i = 0; i < cellCount; i++) {
+    const span = document.createElement('span');
+    span.textContent = Math.random() > 0.5 ? '1' : '0';
+    // Random initial opacity between 0.1 and 0.5 for an organic look
+    span.style.opacity = (Math.random() * 0.4 + 0.1).toFixed(2);
+    fragment.appendChild(span);
+  }
+
+  container.innerHTML = '';
+  container.appendChild(fragment);
+}
+
+// Initialize on page load
+initBackgroundGrid();
+
+// Handle window resize with debounce to maintain grid layout
+window.addEventListener('resize', debounce(initBackgroundGrid, 200));
+
+// --- Periodic Background Grid Updates ---
 setInterval(() => {
-  const cells = document.querySelectorAll('.binary-cell');
+  const cells = document.querySelectorAll('#bg-binary-grid span');
   if (cells.length > 0) {
-    // Randomly select 3 cells to toggle values
-    for (let i = 0; i < 3; i++) {
+    // Select about 1.5% of cells to toggle value and opacity
+    const toggleCount = Math.max(3, Math.floor(cells.length * 0.015));
+    for (let i = 0; i < toggleCount; i++) {
       const index = Math.floor(Math.random() * cells.length);
       const cell = cells[index];
-      cell.textContent = cell.textContent === '1' ? '0' : '1';
+      if (cell) {
+        cell.textContent = cell.textContent === '1' ? '0' : '1';
+        cell.style.opacity = (Math.random() * 0.4 + 0.1).toFixed(2);
+        
+        // Add a temporary subtle flash highlight
+        cell.style.borderColor = 'rgba(25, 219, 125, 0.15)';
+        cell.style.backgroundColor = 'rgba(25, 219, 125, 0.03)';
+        setTimeout(() => {
+          cell.style.borderColor = '';
+          cell.style.backgroundColor = '';
+        }, 1200);
+      }
     }
   }
-}, 600);
+}, 800);
+
+// --- Mouse Coordinate Tracking for Cursor Spotlight ---
+document.addEventListener('mousemove', (e) => {
+  const bgWrapper = document.querySelector('.page-bg-animation');
+  if (bgWrapper) {
+    bgWrapper.style.setProperty('--mouse-x', `${e.clientX}px`);
+    bgWrapper.style.setProperty('--mouse-y', `${e.clientY}px`);
+  }
+});
